@@ -6,7 +6,10 @@ set -euo pipefail
 sudo snap remove mysql-workbench-community
 
 # Clean up old builds
-rm mysql-workbench*.snap
+rm -f mysql-workbench*.snap
+
+# clean all cache
+snapcraft clean --use-lxd
 
 # Build new image
 snapcraft --use-lxd --debug

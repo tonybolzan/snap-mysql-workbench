@@ -33,12 +33,15 @@ apps:
       WB_DEST_DIR: $SNAP
 
 parts:
-  mysql-workbench-install:
+  config:
     plugin: nil
     override-pull: |
-      sudo echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
-      sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 8C718D3B5072E1F5
-      sudo apt update
+      echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
+      apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 8C718D3B5072E1F5
+      apt update
+  install:
+    plugin: nil
+    after: [config]
     stage-packages:
       - mysql-workbench-community
       - libcanberra-gtk3-module
