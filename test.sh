@@ -28,6 +28,7 @@ snapcraft --use-lxd --debug
 
 # Install new image
 sudo snap install --devmode mysql-workbench*.snap
+# sudo snap install --dangerous mysql-workbench*.snap
 
 # Run new snap
 snap run mysql-workbench-community
