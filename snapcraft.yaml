@@ -11,7 +11,7 @@ description: |
 type: app
 grade: devel
 confinement: strict
-license: GPL
+license: GPL-2.0
 icon: mysql-workbench.png
 architectures:
   - build-on: amd64
@@ -33,7 +33,7 @@ apps:
       WB_DEST_DIR: $SNAP
 
 parts:
-  mysql-workbench-community:
+  mysql-workbench-install:
     plugin: nil
     override-pull: |
       sudo echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list

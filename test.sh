@@ -3,7 +3,7 @@ set -euo pipefail
 # Simple script to rebuild and run
 
 # Unistall old snap
-sudo snap remove mysql-workbench
+sudo snap remove mysql-workbench-community
 
 # Clean up old builds
 rm mysql-workbench*.snap
@@ -15,4 +15,4 @@ snapcraft --use-lxd --debug
 sudo snap install --devmode mysql-workbench*.snap
 
 # Run new snap
-mysql-workbench
+snap run mysql-workbench-community
