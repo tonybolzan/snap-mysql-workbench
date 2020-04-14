@@ -1,5 +1,6 @@
 base: core18
 name: mysql-workbench-community
+title: MySQL Workbench
 version: 8.0.19
 summary: MySQL Workbench - a visual database modeling, administration and queuing tool
 description: |
@@ -7,8 +8,13 @@ description: |
   and generate MySQL databases graphically. It also has administration
   and query development modules where you can manage MySQL server instances
   and execute SQL queries.
+type: app
 grade: devel
-confinement: devmode
+confinement: strict
+license: GPL
+icon: mysql-workbench.png
+architectures:
+  - build-on: amd64
 
 apps:
   mysql-workbench-community:
