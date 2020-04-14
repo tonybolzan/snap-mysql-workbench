@@ -1,5 +1,5 @@
 base: core18
-name: mysql-workbench
+name: mysql-workbench-community
 version: 8.0.19
 summary: MySQL Workbench - a visual database modeling, administration and queuing tool
 description: |
@@ -11,7 +11,7 @@ grade: devel
 confinement: devmode
 
 apps:
-  mysql-workbench:
+  mysql-workbench-community:
     command: desktop-launch $SNAP/usr/bin/mysql-workbench
     desktop: usr/share/applications/mysql-workbench.desktop
     extensions:
@@ -27,7 +27,7 @@ apps:
       WB_DEST_DIR: $SNAP
 
 parts:
-  mysql-workbench:
+  mysql-workbench-community:
     plugin: nil
     override-pull: |
       sudo echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
