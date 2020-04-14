@@ -1,6 +1,6 @@
 # MySQL Workbench in snap
 
-[![Snap Status](https://build.snapcraft.io/badge/tonybolzan/snap-mysql-workbench.svg)](https://build.snapcraft.io/user/tonybolzan/snap-mysql-workbench)
+[![Disponível na Snap Store](https://snapcraft.io/static/images/badges/pt/snap-store-white.svg)](https://snapcraft.io/mysql-workbench-community)
 
 A wrapper for deb package `mysql-workbench-community` from original mysql repository `repo.mysql.com`.
 
