@@ -1,0 +1,42 @@
+base: core18
+name: mysql-workbench
+version: 8.0.19
+summary: MySQL Workbench - a visual database modeling, administration and queuing tool
+description: |
+  MySQL Workbench is a modeling tool that allow to design
+  and generate MySQL databases graphically. It also has administration
+  and query development modules where you can manage MySQL server instances
+  and execute SQL queries.
+grade: devel
+confinement: devmode
+
+apps:
+  mysql-workbench:
+    command: desktop-launch $SNAP/usr/bin/mysql-workbench
+    desktop: usr/share/applications/mysql-workbench.desktop
+    extensions:
+      - gnome-3-28
+    plugs:
+      - home
+      - opengl
+      - network
+    environment:
+      PYTHONPATH: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:/$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$PYTHONPATH
+      PYTHONHOME: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:/$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$PYTHONHOME
+      LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+      WB_DEST_DIR: $SNAP
+
+parts:
+  mysql-workbench:
+    plugin: nil
+    override-pull: |
+      sudo echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
+      sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 8C718D3B5072E1F5
+      sudo apt update
+    stage-packages:
+      - mysql-workbench-community
+      - libcanberra-gtk3-module
+      - libproj12
+      - libproj-dev
+      - python2.7
+      - lsb-release
