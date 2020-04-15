@@ -9,3 +9,12 @@ newly released operating systems or they don't even exist.
 
 Wrapping this package in snap makes it possible to use a new or different distribution regardless of the releases from
 mysql team.
+
+### Connections
+If you use connections, Workbench use Password Manager and ssh to work properly.
+
+So it is necessary to give this permission explicitly.
+```sh
+snap connect mysql-workbench-community:password-manager-service 
+snap connect mysql-workbench-community:ssh-keys
+```
