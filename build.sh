@@ -2,6 +2,11 @@
 set -euo pipefail
 # Simple script to rebuild and run
 
+# sudo snap install snapcraft --candidate --classic
+# snap install lxd
+# sudo usermod -a -G lxd ${USER}
+# lxd init
+
 # Latest version from mysql
 VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/bionic/mysql-tools/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
 
@@ -30,7 +35,9 @@ snapcraft --use-lxd --debug
 sudo snap install --dangerous mysql-workbench*.snap
 
 # Run new snap
-snap run mysql-workbench-community
+snap run mysql-workbench-community --log-to-stderr
 
 # Deploy
+# sudo snap remove mysql-workbench-community
 # snapcraft push --release=beta mysql-workbench*.snap
+# sudo snap install mysql-workbench-community
