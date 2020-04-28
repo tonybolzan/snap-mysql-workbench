@@ -29,8 +29,8 @@ apps:
       - ssh-keys
       - password-manager-service
     environment:
-      PYTHONPATH: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:/$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$PYTHONPATH
-      PYTHONHOME: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:/$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$PYTHONHOME
+      PYTHONPATH: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/lib-dynload/:$SNAP/usr/lib/python2.7/dist-packages/:$PYTHONPATH
+      PYTHONHOME: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/lib-dynload/:$SNAP/usr/lib/python2.7/dist-packages/:$PYTHONHOME
       PROJSO: $SNAP/usr/lib/x86_64-linux-gnu/libproj.so
       LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
       WB_DEST_DIR: $SNAP

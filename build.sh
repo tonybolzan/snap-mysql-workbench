@@ -2,8 +2,8 @@
 set -euo pipefail
 # Simple script to rebuild and run
 
-# sudo snap install snapcraft --candidate --classic
-# snap install lxd
+# sudo snap install snapcraft --classic
+# sudo snap install lxd
 # sudo usermod -a -G lxd ${USER}
 # lxd init
 
