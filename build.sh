@@ -33,6 +33,8 @@ snapcraft --use-lxd --debug
 
 # Install new image
 sudo snap install --dangerous mysql-workbench*.snap
+sudo snap connect mysql-workbench-community:password-manager-service
+sudo snap connect mysql-workbench-community:ssh-keys
 
 # Run new snap
 snap run mysql-workbench-community --log-to-stderr
