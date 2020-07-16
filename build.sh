@@ -41,5 +41,5 @@ snap run mysql-workbench-community --log-to-stderr
 
 # Deploy
 # sudo snap remove mysql-workbench-community
-# snapcraft push --release=beta mysql-workbench*.snap
+# snapcraft upload --release=stable mysql-workbench*.snap
 # sudo snap install mysql-workbench-community
