@@ -1,7 +1,7 @@
 base: core18
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.20
+version: 8.0.21
 summary: MySQL Workbench - a visual database modeling, administration and queuing tool
 description: |
   MySQL Workbench is a modeling tool that allow to design
