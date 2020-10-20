@@ -1,7 +1,7 @@
 base: core18
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.21
+version: 8.0.22
 summary: MySQL Workbench - a visual database modeling, administration and queuing tool
 description: |
   MySQL Workbench is a modeling tool that allow to design
@@ -28,6 +28,7 @@ apps:
       - network
       - ssh-keys
       - password-manager-service
+      - cups-control
     environment:
       PYTHONPATH: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/lib-dynload/:$SNAP/usr/lib/python2.7/dist-packages/:$PYTHONPATH
       PYTHONHOME: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/lib-dynload/:$SNAP/usr/lib/python2.7/dist-packages/:$PYTHONHOME

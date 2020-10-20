@@ -1,6 +1,6 @@
 # MySQL Workbench in snap
 
-[![Disponível na Snap Store](https://snapcraft.io/static/images/badges/pt/snap-store-white.svg)](https://snapcraft.io/mysql-workbench-community)
+[![Available on Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/mysql-workbench-community)
 
 A wrapper for deb package `mysql-workbench-community` from original mysql repository `repo.mysql.com`.
 
@@ -17,4 +17,5 @@ So it is necessary to give this permission explicitly.
 ```sh
 snap connect mysql-workbench-community:password-manager-service 
 snap connect mysql-workbench-community:ssh-keys
+snap connect mysql-workbench-community:cups-control
 ```
