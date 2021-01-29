@@ -3,9 +3,7 @@ set -euo pipefail
 # Simple script to rebuild and run
 
 # sudo snap install snapcraft --classic
-# sudo snap install lxd
-# sudo usermod -a -G lxd ${USER}
-# lxd init
+# sudo snap install multipass
 
 # Latest version from mysql
 VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/bionic/mysql-tools/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
@@ -26,20 +24,21 @@ sudo snap remove mysql-workbench-community
 rm -f mysql-workbench*.snap
 
 # clean all cache
-snapcraft clean --use-lxd
+snapcraft clean
 
 # Build new image
-snapcraft --use-lxd --debug
+snapcraft --debug
 
 # Install new image
 sudo snap install --dangerous mysql-workbench*.snap
 sudo snap connect mysql-workbench-community:password-manager-service
 sudo snap connect mysql-workbench-community:ssh-keys
+sudo snap connect mysql-workbench-community:cups-control
 
 # Run new snap
 snap run mysql-workbench-community --log-to-stderr
 
 # Deploy
 # sudo snap remove mysql-workbench-community
-# snapcraft upload --release=stable mysql-workbench*.snap
-# sudo snap install mysql-workbench-community
+# snapcraft upload --release=edge mysql-workbench*.snap
+# sudo snap install mysql-workbench-community --edge

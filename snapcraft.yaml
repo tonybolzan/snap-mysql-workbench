@@ -1,7 +1,7 @@
 base: core18
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.22
+version: 8.0.23
 summary: MySQL Workbench - a visual database modeling, administration and queuing tool
 description: |
   MySQL Workbench is a modeling tool that allow to design
@@ -30,8 +30,6 @@ apps:
       - password-manager-service
       - cups-control
     environment:
-      PYTHONPATH: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/lib-dynload/:$SNAP/usr/lib/python2.7/dist-packages/:$PYTHONPATH
-      PYTHONHOME: $SNAP/lib/x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/:$SNAP/usr/lib/python2.7/plat-x86_64-linux-gnu/:$SNAP/usr/lib/python2.7/lib-dynload/:$SNAP/usr/lib/python2.7/dist-packages/:$PYTHONHOME
       PROJSO: $SNAP/usr/lib/x86_64-linux-gnu/libproj.so
       LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
       WB_DEST_DIR: $SNAP
@@ -39,20 +37,22 @@ apps:
 parts:
   config:
     plugin: nil
+    build-packages:
+      - dirmngr
     override-pull: |
       echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
       apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 8C718D3B5072E1F5
-      apt update
+      apt -qq update
 
   install:
     plugin: nil
-    after: [config]
+    after: [ config ]
     stage-packages:
       - mysql-workbench-community
       - libcanberra-gtk3-module
       - libproj12
       - libproj-dev
-      - python2.7
+      - python3.6
       - lsb-release
       - libc-bin
 
@@ -60,4 +60,4 @@ parts:
     plugin: nil
     override-build:
       sed -i 's|Icon=mysql-workbench|Icon=/usr/share/icons/hicolor/128x128/apps/mysql-workbench.png|' $SNAPCRAFT_STAGE/usr/share/applications/mysql-workbench.desktop
-    after: [install]
+    after: [ install ]
