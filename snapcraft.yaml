@@ -1,13 +1,14 @@
-base: core18
+base: core20
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.23
-summary: MySQL Workbench - a visual database modeling, administration and queuing tool
+version: 8.0.25
+summary: MySQL Workbench
 description: |
-  MySQL Workbench is a modeling tool that allow to design
-  and generate MySQL databases graphically. It also has administration
-  and query development modules where you can manage MySQL server instances
-  and execute SQL queries.
+  MySQL Workbench is development, administration and data modeling tool
+  for MySQL. Besides editing and running SQL queries and scripts, it supports
+  the design of MySQL databases through a EER diagram, which is then used to
+  generate SQL scripts. Workbench also supports migration from many RDBMS
+  products to MySQL.
 type: app
 grade: stable
 confinement: strict
@@ -18,10 +19,10 @@ architectures:
 
 apps:
   mysql-workbench-community:
-    command: desktop-launch $SNAP/usr/bin/mysql-workbench
+    command: usr/bin/mysql-workbench
     desktop: usr/share/applications/mysql-workbench.desktop
     extensions:
-      - gnome-3-28
+      - gnome-3-38
     plugs:
       - home
       - opengl
@@ -29,9 +30,11 @@ apps:
       - ssh-keys
       - password-manager-service
       - cups-control
+      - removable-media
     environment:
+      PYTHONPATH: $SNAP/usr/lib/python3/:$SNAP/usr/lib/python3/dist-packages/:$PYTHONPATH
       PROJSO: $SNAP/usr/lib/x86_64-linux-gnu/libproj.so
-      LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+      LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu
       WB_DEST_DIR: $SNAP
 
 parts:
@@ -40,20 +43,26 @@ parts:
     build-packages:
       - dirmngr
     override-pull: |
-      echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
+      echo "deb http://repo.mysql.com/apt/ubuntu focal mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
       apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 8C718D3B5072E1F5
       apt -qq update
 
+  copy:
+    plugin: dump
+    after: [ config ]
+    source: .
+    organize:
+      lsb_release: usr/bin/lsb_release
+
   install:
     plugin: nil
-    after: [ config ]
+    after: [ copy ]
     stage-packages:
       - mysql-workbench-community
       - libcanberra-gtk3-module
-      - libproj12
+      - libproj15
       - libproj-dev
-      - python3.6
-      - lsb-release
+      - python3.8
       - libc-bin
 
   fix-icon:

@@ -6,7 +6,7 @@ set -euo pipefail
 # sudo snap install multipass
 
 # Latest version from mysql
-VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/bionic/mysql-tools/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
+VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/focal/mysql-tools/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
 
 VERSION_LOCAL=$(grep 'version' snapcraft.yaml |awk '{print $2}')
 
@@ -34,6 +34,7 @@ sudo snap install --dangerous mysql-workbench*.snap
 sudo snap connect mysql-workbench-community:password-manager-service
 sudo snap connect mysql-workbench-community:ssh-keys
 sudo snap connect mysql-workbench-community:cups-control
+sudo snap connect mysql-workbench-community:removable-media
 
 # Run new snap
 snap run mysql-workbench-community --log-to-stderr

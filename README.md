@@ -18,4 +18,5 @@ So it is necessary to give this permission explicitly.
 snap connect mysql-workbench-community:password-manager-service 
 snap connect mysql-workbench-community:ssh-keys
 snap connect mysql-workbench-community:cups-control
+snap connect mysql-workbench-community:removable-media
 ```
