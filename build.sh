@@ -4,6 +4,7 @@ set -euo pipefail
 
 # sudo snap install snapcraft --classic
 # sudo snap install multipass
+# snapcraft login
 
 # Latest version from mysql
 VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/focal/mysql-tools/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
