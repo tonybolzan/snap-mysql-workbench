@@ -1,7 +1,7 @@
 base: core20
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.25
+version: 8.0.29
 summary: MySQL Workbench
 description: |
   MySQL Workbench is development, administration and data modeling tool
@@ -44,7 +44,7 @@ parts:
       - dirmngr
     override-pull: |
       echo "deb http://repo.mysql.com/apt/ubuntu focal mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
-      apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 8C718D3B5072E1F5
+      apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 467B942D3A79BD29
       apt -qq update
 
   copy:

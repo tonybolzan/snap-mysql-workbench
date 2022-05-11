@@ -18,6 +18,8 @@ if [ "$VERSION_LOCAL" != "$VERSION_ONLINE" ]; then
     exit 1
 fi
 
+echo "Building Version:  $VERSION_LOCAL"
+
 # Unistall old snap
 sudo snap remove mysql-workbench-community
 
