@@ -1,4 +1,5 @@
 base: core20
+compression: lzo
 name: mysql-workbench-community
 title: MySQL Workbench
 version: 8.0.29
