@@ -3,11 +3,12 @@ set -euo pipefail
 # Simple script to rebuild and run
 
 # sudo snap install snapcraft --classic
-# sudo snap install multipass
+# sudo snap install lxd
+# lxd init --auto
 # snapcraft login
 
 # Latest version from mysql
-VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/focal/mysql-tools/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
+VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/jammy/mysql-tools/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
 
 VERSION_LOCAL=$(grep 'version' snapcraft.yaml |awk '{print $2}')
 
