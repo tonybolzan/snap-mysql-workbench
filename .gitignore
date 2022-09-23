@@ -4,3 +4,6 @@
 # SNAP
 *.snap
 *.snap.xdelta3*
+
+# JetBrains
+.idea
