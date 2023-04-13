@@ -53,4 +53,14 @@ snap run mysql-workbench-community --log-to-stderr
 # Deploy
 # sudo snap remove mysql-workbench-community
 # snapcraft upload --release=edge mysql-workbench*.snap
+# rm -f mysql-workbench*.snap
 # sudo snap install mysql-workbench-community --edge
+
+# CleanUP
+# lxd shutdown
+# lxc list --project snapcraft -fcsv -cn | xargs sudo lxc delete --project snapcraft -f
+# lxc image list --project snapcraft -fcsv -cF | xargs sudo lxc image delete --project snapcraft
+# lxc project delete snapcraft
+# snapcraft logout
+# sudo snap remove snapcraft --purge
+# sudo snap remove lxd --purge
