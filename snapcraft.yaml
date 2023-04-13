@@ -2,7 +2,7 @@ base: core22
 compression: lzo
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.30
+version: 8.0.32
 summary: MySQL Workbench
 description: |
   MySQL Workbench is development, administration and data modeling tool
@@ -62,9 +62,9 @@ parts:
     stage-packages:
       - mysql-workbench-community
       - libcanberra-gtk3-module
-      - libproj15
+      - libproj22
       - libproj-dev
-      - python3.8
+      - python3
       - libc-bin
 
   fix-icon:
