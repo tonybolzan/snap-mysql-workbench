@@ -1,8 +1,8 @@
-base: core20
+base: core22
 compression: lzo
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.29
+version: 8.0.32
 summary: MySQL Workbench
 description: |
   MySQL Workbench is development, administration and data modeling tool
@@ -23,7 +23,7 @@ apps:
     command: usr/bin/mysql-workbench
     desktop: usr/share/applications/mysql-workbench.desktop
     extensions:
-      - gnome-3-38
+      - gnome
     plugs:
       - home
       - opengl
@@ -42,10 +42,11 @@ parts:
   config:
     plugin: nil
     build-packages:
-      - dirmngr
+      - curl
+      - gpg
     override-pull: |
-      echo "deb http://repo.mysql.com/apt/ubuntu focal mysql-tools" > /etc/apt/sources.list.d/mysql-tools.list
-      apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 467B942D3A79BD29
+      echo "deb [signed-by=/usr/share/keyrings/mysql.gpg] http://repo.mysql.com/apt/ubuntu jammy mysql-tools" > /etc/apt/sources.list.d/mysql.list
+      curl -sSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x467B942D3A79BD29" | gpg --yes --dearmor --output /usr/share/keyrings/mysql.gpg
       apt -qq update
 
   copy:
@@ -61,13 +62,13 @@ parts:
     stage-packages:
       - mysql-workbench-community
       - libcanberra-gtk3-module
-      - libproj15
+      - libproj22
       - libproj-dev
-      - python3.8
+      - python3
       - libc-bin
 
   fix-icon:
     plugin: nil
     override-build:
-      sed -i 's|Icon=mysql-workbench|Icon=/usr/share/icons/hicolor/128x128/apps/mysql-workbench.png|' $SNAPCRAFT_STAGE/usr/share/applications/mysql-workbench.desktop
+      sed -i 's|Icon=mysql-workbench|Icon=/usr/share/icons/hicolor/128x128/apps/mysql-workbench.png|' $CRAFT_STAGE/usr/share/applications/mysql-workbench.desktop
     after: [ install ]

@@ -37,7 +37,7 @@ def main():
     none = not (options.all or options.version or options.id or
                 options.description or options.codename or options.release)
 
-    distinfo = {'ID': 'Ubuntu', 'DESCRIPTION': 'Ubuntu 20.04', 'RELEASE': '20.04', 'CODENAME': 'focal'}
+    distinfo = {'ID': 'Ubuntu', 'DESCRIPTION': 'Ubuntu 22.04', 'RELEASE': '22.04', 'CODENAME': 'jammy'}
 
     if none or options.all or options.version:
         verinfo = []
