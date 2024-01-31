@@ -46,8 +46,8 @@ parts:
       - gpg
     override-pull: |
       echo "deb [signed-by=/usr/share/keyrings/mysql.gpg] http://repo.mysql.com/apt/ubuntu jammy mysql-8.0" > /etc/apt/sources.list.d/mysql.list
-      curl -sSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x467B942D3A79BD29" | gpg --yes --dearmor --output /usr/share/keyrings/mysql.gpg
-      apt -qq update
+      curl -sSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xB7B3B788A8D3785C" | gpg --yes --dearmor --output /usr/share/keyrings/mysql.gpg
+      apt-get -qq update
 
   copy:
     plugin: dump
