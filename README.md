@@ -14,12 +14,12 @@ mysql team.
 If you use connections, Workbench use Password Manager and ssh to work properly.
 
 So it is necessary to give this permission explicitly.
-```sh
+```shell
 snap connect mysql-workbench-community:password-manager-service 
 snap connect mysql-workbench-community:ssh-keys
 ```
 Or if you use files on external disks or need to print files, too.
-```sh
+```shell
 snap connect mysql-workbench-community:cups-control
 snap connect mysql-workbench-community:removable-media
 ```
