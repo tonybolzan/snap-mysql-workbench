@@ -8,7 +8,7 @@ set -euo pipefail
 # snapcraft login
 
 # Latest version from mysql
-VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/jammy/mysql-8.0/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
+VERSION_ONLINE=$(curl -sS "http://repo.mysql.com/apt/ubuntu/dists/noble/mysql-8.0/binary-amd64/Packages" | grep -PA2 '^Package: mysql-workbench-community$'| grep -Po '^Version: \K(\d+\.\d+\.\d+)')
 
 VERSION_LOCAL=$(grep 'version' snapcraft.yaml |awk '{print $2}')
 

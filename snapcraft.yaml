@@ -2,7 +2,7 @@ base: core22
 compression: lzo
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.36
+version: 8.0.38
 summary: MySQL Workbench
 description: |
   MySQL Workbench is development, administration and data modeling tool
@@ -45,7 +45,7 @@ parts:
       - curl
       - gpg
     override-pull: |
-      echo "deb [signed-by=/usr/share/keyrings/mysql.gpg] http://repo.mysql.com/apt/ubuntu jammy mysql-8.0" > /etc/apt/sources.list.d/mysql.list
+      echo "deb [signed-by=/usr/share/keyrings/mysql.gpg] http://repo.mysql.com/apt/ubuntu noble mysql-8.0" > /etc/apt/sources.list.d/mysql.list
       curl -sSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xB7B3B788A8D3785C" | gpg --yes --dearmor --output /usr/share/keyrings/mysql.gpg
       apt-get -qq update
 

@@ -28,7 +28,7 @@ def main():
     parser.add_option('-s', '--short', dest='short',
                       action='store_true', default=False,
                       help="show requested information in short format")
-    
+
     (options, args) = parser.parse_args()
     if args:
         parser.error("No arguments are permitted")
@@ -37,7 +37,7 @@ def main():
     none = not (options.all or options.version or options.id or
                 options.description or options.codename or options.release)
 
-    distinfo = {'ID': 'Ubuntu', 'DESCRIPTION': 'Ubuntu 22.04', 'RELEASE': '22.04', 'CODENAME': 'jammy'}
+    distinfo = {'ID': 'Ubuntu', 'DESCRIPTION': 'Ubuntu 24.04', 'RELEASE': '24.04', 'CODENAME': 'noble'}
 
     if none or options.all or options.version:
         verinfo = []
