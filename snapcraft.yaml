@@ -2,7 +2,7 @@ base: core24
 compression: lzo
 name: mysql-workbench-community
 title: MySQL Workbench
-version: 8.0.38
+version: 8.0.47
 summary: MySQL Workbench
 description: |
   MySQL Workbench is development, administration and data modeling tool
